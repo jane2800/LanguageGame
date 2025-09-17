@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 2rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: teal;
+    color:white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: teal;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.btn:hover {
+  background: rgb(108, 122, 122);
+}
+
+.game-container {
+    display: grid;
+    grid-template-areas:
+        "top top top"
+        "left board right"
+        "bottom bottom bottom";
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 50px 50px 1fr 50px; /* 50px row for controls */
+    height: 100vh;
+    gap: 5px;
+}
+
+.title-bar {
+    grid-area: top;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: lightblue;
+}
+
+.top-controls { 
+  width: 100%;   
+  background: #ddd; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  gap: 15px; 
+  padding: 10px;
+  grid-template-rows: 60px auto 1fr;
+ }
+
+.btn-quiz {
+  display: inline-block;
+  align-items: right;
+  padding: 10px 10px;
+  background: teal;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.bottom-area {
+  grid-area: bottom;
+  display: flex;    
+  gap: 10px;           
+  height: calc(100vh - 110px); 
+  padding: 10px;
+}
+
+.card-panel {
+    grid-area: left;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(8, 100px);
+    background: lightgray;
+    gap: 1px;
+}
+
+.card-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background: #eee;
+  font-size: 12px;
+}
+
+.map-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 50px);
+    grid-template-rows: repeat(15, 50px);
+    gap: 1px;
+}
+
+.map-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background: #eee;
+    font-size: 12px;
+}
+
+
+.right-panel {
+    grid-area: right;
+    background: lightgray;
+}
+
+.bottom-bar {
+    grid-area: bottom;
+    background: lightblue;
+}
+
+.game-body {
+    background: pink;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class ="game-body">
+    <div class="game-container">
+
+        <header class="title-bar">Zug um Zug</header>
+        <section class="top-controls">
+            <button>Goals</button>
+            <span>Score: 0</span>
+            <button>Quiz</button>
+        </section>
+
+
+        <div class="bottom-area">
+            <div class="card-panel">
+                <div class="card-cell" style="background-color: rgb(255, 0, 0);">Red</div>
+                <div class="card-cell">A2</div>
+
+                <div class="card-cell" style="background-color: rgb(255, 170, 0);">Orange</div>
+                <div class="card-cell">A1</div>
+
+                <div class="card-cell" style="background-color: yellow;">Yellow</div>
+                <div class="card-cell">A1</div>
+
+                <div class="card-cell" style="background-color: rgb(0, 255, 68);">Green</div>
+                <div class="card-cell">A1</div>
+
+                <div class="card-cell" style="background-color: rgb(0, 0, 255);">Blue</div>
+                <div class="card-cell">A2</div>
+
+                <div class="card-cell" style="background-color: rgb(111, 0, 255);">Purple</div>
+                <div class="card-cell">A1</div>
+
+                <div class="card-cell" style="background-color: rgb(255, 0, 247);">Pink</div>
+                <div class="card-cell">A1</div>
+                
+                <div class="card-cell" style="background-color: rgb(255, 0, 157);">Raindow</div>
+                <div class="card-cell">A1</div>
+            </div>
+
+            <div class="map-grid" id="mapGrid"></div>
+
+            <script>
+            const mapGrid = document.getElementById("mapGrid");
+            const rows = 15;
+            const cols = 20;
+
+            for (let r = 1; r <= rows; r++) {
+                for (let c = 1; c <= cols; c++) {
+                    const cell = document.createElement("div");
+                    cell.className = "map-cell";
+                    mapGrid.appendChild(cell);
+                }
+            }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
+

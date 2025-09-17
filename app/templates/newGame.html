@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<!--If email is empty, error message saying to add it before clicking random number. After press random number does Start button popup-->
+<body>
+    <h1>Game Page 🎮</h1>
+    <div>
+        <span>Email</span>
+        <input type="email">
+    </div>
+    <button onclick="getRandomNumber()">Get Random Number</button>
+    <p id="randomResult"></p>
+
+    <nav>
+        <a href="/game" class="btn">Start</a>
+    </nav>
+
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
+
