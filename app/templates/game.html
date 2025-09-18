@@ -10,9 +10,15 @@
 
         <header class="title-bar">Zug um Zug</header>
         <section class="top-controls">
-            <button>Goals</button>
             <span>Score: 0</span>
             <button>Quiz</button>
+
+            <a class="btn" onclick="pop('box1')">Goals</a>
+            <div id="box1" class="box">
+                <i class="fas fa-check-circle"></i> 
+                <h1>Goals:</h1>
+                <a class="close" onclick="pop('box1')">Close</a>
+            </div>
         </section>
 
 
@@ -58,8 +64,34 @@
                 }
             }
             </script>
+
         </div>
+
     </div>
+        <a class="btn" onclick="pop('box2')">Place</a>
+        <div id="box2" class="box">
+            <i class="fas fa-check-circle"></i> 
+            <h1>Chose Destination</h1>
+
+            <p>From:</p>
+            <select name="cities">
+                <option value="LA">Los Angeles</option>
+                <option value="LV">Las Vegas</option>
+                <option value="NY">New York</option>
+            </select>
+
+            <p>To</p>
+            <select name="cities">
+                <option value="LA">Los Angeles</option>
+                <option value="LV">Las Vegas</option>
+                <option value="NY">New York</option>
+            </select>
+
+        <a class="close" onclick="pop('box2')">Close</a>
+        <button> Place </button>
+    </div>
+    
+    <script src="/static/app.js"></script>
 </body>
 </html>
 
