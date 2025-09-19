@@ -17,3 +17,31 @@ async function getRandomNumber() {
         "Random number: " + data.random_number;
 }
 
+
+function pop(id) {
+    let box = document.getElementById(id);
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+    }
+}
+
+//quiz.html
+function getScreenSize() {
+    return {
+        width: window.innerWidth,
+        height: window.innerHeight
+    };
+}
+// Run when page loads
+window.onload = showSize;
+
+// Update on window resize
+window.onresize = showSize;
+
+function showSize() {
+    let size = getScreenSize();
+    document.getElementById("screenSize").innerText =
+        `Width: ${size.width}, Height: ${size.height}`;
+}

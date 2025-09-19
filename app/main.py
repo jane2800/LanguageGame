@@ -27,10 +27,15 @@ async def read_root(request: Request):
 async def game_page(request: Request):
     return templates.TemplateResponse("game.html", {"request": request})
 
-@app.get("/continueGame", response_class=HTMLResponse)
+@app.get("/continue-game", response_class=HTMLResponse)
 async def continueGame_page(request: Request):
-    return templates.TemplateResponse("continueGame.html", {"request": request})
+    return templates.TemplateResponse("continue-game.html", {"request": request})
 
-@app.get("/newGame", response_class=HTMLResponse)
+@app.get("/new-game", response_class=HTMLResponse)
 async def newGame_page(request: Request):
-    return templates.TemplateResponse("newGame.html", {"request": request})
+    return templates.TemplateResponse("new-game.html", {"request": request})
+
+@app.get("/quiz", response_class=HTMLResponse)
+async def quiz_page(request: Request):
+    return templates.TemplateResponse("quiz.html", {"request": request})
+

@@ -1,0 +1,80 @@
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 400px 1000px;
+    grid-template-rows: 100px 700px;
+}
+
+.scroll-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 380px;
+    grid-auto-rows: 100px;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    gap: 5px 10px;
+}
+
+.main-container {
+    width: 950px;
+    height: 650px;
+    margin: 0 auto;
+    display: grid;
+    background-color: azure;
+    gap: 5px 10px;
+    margin-top: 20px;    /* space above the container */
+    margin-bottom: 20px;
+}
+
+.quiz-container {
+    display: grid;
+    height: 650px;
+    width: 950px;
+    grid-template-columns: repeat(3 300px);
+    grid-template-rows: 100px 400px 50px;
+    background-color: aqua;
+    gap: 10px;
+    margin: 0 auto;
+}
+.item-a {
+  grid-area: 1 / 1 / 2 / 3;
+  background-color: aqua;
+}
+
+.item-b {
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: rgb(63, 91, 63);
+}
+
+.item-ba {
+    background-color: red;
+
+}
+
+.item-c {
+  grid-area: 2 / 2 / 3 / 3;
+  background-color: rgb(136, 0, 255);
+}
+
+.item-d {
+    grid-area: 1 / 0 / 2 / 2;
+    background-color: blue;
+    align-items: center;    /* vertical */
+    justify-content: center;
+}
+
+.item-e {
+    grid-area: 2 / 0 / 3 / 2;
+    background-color: rgb(247, 0, 255);
+    align-items: center;    /* vertical */
+    justify-content: center;
+}
+
+.item-f {
+    grid-area: 3 / 2 / 3 / 2;
+    background-color: rgb(0, 255, 179);
+    align-items: center;    /* vertical */
+    justify-content: center;
+}
+
