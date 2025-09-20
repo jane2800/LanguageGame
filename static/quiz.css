@@ -16,6 +16,9 @@
     padding-top: 10px;
     padding-bottom: 10px; 
     gap: 5px 10px;
+
+    max-height: 675px;
+    overflow-y: auto;
 }
 
 .main-container {
@@ -49,6 +52,7 @@
 }
 
 .quiz-container {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 300px); 
     grid-template-rows: 100px 400px 50px;
@@ -78,7 +82,8 @@
     justify-content: center;
 }
 
-.item-f {
+/* button for start*/
+.item-f { 
     grid-column: 2 / 3;   /* only middle column */
     grid-row: 3 / 4;      /* third row */
     background-color: rgb(103, 151, 136);
@@ -88,3 +93,30 @@
 }
 
 
+.quizview-container{
+    display: grid;
+    grid-auto-rows: 50px;
+    height: auto;
+    grid-area: 2 / 1 / 3 / 4;
+    background-color: red;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    
+    padding: 10px 10px 10px 10px;
+    gap: 5px 10px;
+    margin: 0 auto;
+
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.item-g, .item-h {
+  background-color: aqua;
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center;
+  overflow: hidden;      /* hide overflow */
+  white-space: nowrap;   /* keep text on one line */
+}
