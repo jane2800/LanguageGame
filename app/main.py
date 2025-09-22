@@ -1,23 +1,26 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from pydantic import BaseModel
+from typing import List, Annotated
+
 from app.api.setup import router as random_router
 
-app = FastAPI()
+app = FastAPI() 
 
-# Serve static files (CSS/JS)
+#Add classes for Basemodels
+
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Templates (HTML pages)
 templates = Jinja2Templates(directory="app/templates")
 
 app.include_router(random_router)
 
 from fastapi import Request
 from fastapi.responses import HTMLResponse
-
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
@@ -39,3 +42,6 @@ async def newGame_page(request: Request):
 async def quiz_page(request: Request):
     return templates.TemplateResponse("quiz.html", {"request": request})
 
+@app.get("/quiz-q", response_class=HTMLResponse)
+async def quiz_question_page(request: Request):
+    return templates.TemplateResponse("quiz-q.html", {"request":request})
