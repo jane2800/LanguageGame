@@ -34,11 +34,19 @@
 .item-a {
   grid-area: 1 / 1 / 2 / 3;
   background-color: aqua;
+  font-size: 50px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
 
 .item-b {
   grid-area: 2 / 1 / 3 / 2;
   background-color: rgb(63, 91, 63);
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .item-ba {
@@ -86,10 +94,25 @@
 .item-f { 
     grid-column: 2 / 3;   /* only middle column */
     grid-row: 3 / 4;      /* third row */
-    background-color: rgb(103, 151, 136);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 

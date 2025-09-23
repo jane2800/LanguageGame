@@ -10,9 +10,6 @@ from app.api.setup import router as random_router
 
 app = FastAPI() 
 
-#Add classes for Basemodels
-
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="app/templates")
