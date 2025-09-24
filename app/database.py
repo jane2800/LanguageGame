@@ -6,9 +6,9 @@ URL_DATABASE = 'postgresql://postgres:corn1234@localhost:5432/LanguageGame'
 
 engine = create_engine(URL_DATABASE)
 
-SessionLocal = sessionmaker(autocomit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base
+Base = declarative_base()
 
 def get_db():
     db = SessionLocal()

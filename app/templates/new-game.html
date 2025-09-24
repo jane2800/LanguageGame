@@ -9,12 +9,13 @@
 <!--If email is empty, error message saying to add it before clicking random number. After press random number does Start button popup-->
 <body>
     <h1>Game Page 🎮</h1>
-    <div>
-        <span>Email</span>
-        <input type="email">
-    </div>
-    <button onclick="getRandomNumber()">Get Random Number</button>
-    <p id="randomResult"></p>
+    {% if gamekey %}
+        <p>Your game key is: <strong>{{ gamekey }}</strong></p>
+    {% else %}
+        <form action="/generate-key" method="post">
+        <button type="submit">Generate Game Key</button>
+        </form>
+    {% endif %}
 
     <select name="cities">
         <option value="EN">English</option>

@@ -27,15 +27,13 @@ class CitiesRead(CitiesBase):
         orm_mode = True
 
 class AccountCreate(BaseModel):
-    game_key : int
     system_language : str
     goal_language : str
 
 class AccountRead(BaseModel):
     id : int
     total_score : int
-    system_language : LanguageRead
-    goal_language : LanguageRead
+    game_key : int
 
 
     class Config:
