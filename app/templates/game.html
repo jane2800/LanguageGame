@@ -11,8 +11,9 @@
         <header class="title-bar">Zug um Zug</header>
         <section class="top-controls">
             <span>Score: 0</span>
-            <a href="/quiz" class="btn">Quiz</a>
-
+            {% if account %}
+                <a href="/quiz/{{account.game_key}}" class="btn">Quiz</a>
+            {% endif %}
             <a class="btn" onclick="pop('box1')">Goals</a>
             <div id="box1" class="box">
                 <i class="fas fa-check-circle"></i> 

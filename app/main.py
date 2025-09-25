@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, HTTPException, Depends
+from fastapi import FastAPI, Request, HTTPException, Depends, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -30,10 +30,6 @@ async def read_root(request: Request):
         "index.html", 
         {"request": request})
 
-@app.get("/game", response_class=HTMLResponse)
-async def game_page(request: Request):
-    return templates.TemplateResponse("game.html", {"request": request})
-
 @app.get("/continue-game", response_class=HTMLResponse)
 async def continueGame_page(request: Request):
     return templates.TemplateResponse("continue-game.html", {"request": request})
@@ -45,17 +41,41 @@ async def newGame_page(request: Request):
                                                         "gamekey": None})
 
 @app.post("/generate-key", response_class=HTMLResponse)
-async def generate_key(request: Request, session : Session = Depends(get_db)):
-        account_data = schemas.AccountCreate(system_language="EN", goal_language="DE")
+async def generate_key(request: Request, 
+                       session : Session = Depends(get_db),
+                       goal_language : str = Form(...),
+                       system_language: str = Form(...)
+                       ):
+
+        account_data = schemas.AccountCreate(system_language=system_language, 
+                                             goal_language=goal_language)
+        
         account = crud.create_account(session, account_data)
+        
         return templates.TemplateResponse(
         "new-game.html",
-        {"request": request, "gamekey": account.game_key, "account": account}
+        {"request": request, 
+         "gamekey": account.game_key, 
+         "account": account, 
+         "system_language": system_language,
+         "goal_language": goal_language}
         )
 
-@app.get("/quiz", response_class=HTMLResponse)
-async def quiz_page(request: Request):
-    return templates.TemplateResponse("quiz.html", {"request": request})
+@app.get("/game/{game_key}", response_class=HTMLResponse)
+async def game_page(game_key: int, request: Request, session: Session = Depends(get_db)):
+    account = crud.get_account(session, game_key)
+    if account is None:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return templates.TemplateResponse("game.html", {"request": request,
+                                                     "account": account})
+
+@app.get("/quiz/{game_key}", response_class=HTMLResponse)
+async def quiz_page(game_key: int, request: Request, session: Session = Depends(get_db)):
+    account = crud.get_account(session, game_key)
+    if account is None:
+        raise HTTPException(status_code=404, detail=f"Game with key {game_key} not found")
+    return templates.TemplateResponse("quiz.html", {"request": request,
+                                                    "account": account,})
 
 @app.get("/quiz-q", response_class=HTMLResponse)
 async def quiz_question_page(request: Request):

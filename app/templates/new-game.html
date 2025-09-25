@@ -10,22 +10,28 @@
 <body>
     <h1>Game Page 🎮</h1>
     {% if gamekey %}
-        <p>Your game key is: <strong>{{ gamekey }}</strong></p>
+        <p>Your game key is: <strong>{{ account.game_key }}</strong></p>
+        <a href="/game/{{account.game_key}}" class="btn">Start</a>
     {% else %}
+
         <form action="/generate-key" method="post">
-        <button type="submit">Generate Game Key</button>
+            <label for="system_language">System language:</label>
+            <select name="system_language", id="system_language">
+                <option value="DF">Select</option>
+                <option value="EN">English</option>
+                <option value="DB">German</option>
+            </select>
+
+            <label for="goal_language">Goal Language:</label>
+            <select name="goal_language", id="goal_language">
+                <option value="DF">Select</option>
+                <option value="EN">English</option>
+                <option value="DB">German</option>
+            </select>
+
+            <button type="submit">Generate Game Key</button>
         </form>
     {% endif %}
-
-    <select name="cities">
-        <option value="EN">English</option>
-        <option value="DB">German</option>
-    </select>
-
-    <nav>
-        <a href="/game" class="btn">Start</a>
-    </nav>
-
 
     <script src="/static/app.js"></script>
 </body>

@@ -31,3 +31,6 @@ def create_account(db: Session, account: schemas.AccountCreate):
 
 def get_accounts(db: Session):
     return db.query(models.Account).all()
+
+def get_account(db: Session, game_key : int):
+    return db.query(models.Account).filter(models.Account.game_key == game_key).first()

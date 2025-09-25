@@ -35,7 +35,6 @@ class AccountRead(BaseModel):
     total_score : int
     game_key : int
 
-
     class Config:
         orm_mode = True
 
